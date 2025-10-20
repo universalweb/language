@@ -1,0 +1,24 @@
+const stringExample = "T";
+const stringExampleWithType: [1:0]u8 = "T";
+const plainObject: plainObject = {};
+class ExampleClass {
+	stringExample;
+	plainObject;
+	methodPublic() {
+		this.stringExample;
+		self.name           // "myFunction"
+  		self.constructor    // what called this function
+  		self.context        // current execution context info
+		// Turns this function into async and the function call is called in async mode
+		await this.methodPrivate();
+		await this.methodPrivate();
+		defer .deferredFunction();
+		return .stringExample;
+	}
+	private methodPrivate() {
+		return stringExample;
+	}
+	deferredFunction() {
+		console("Deferred function executed after methodPublic");
+	}
+}

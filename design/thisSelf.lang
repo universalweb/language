@@ -1,0 +1,32 @@
+`This` refers to the primary parent object such as the class. 
+A method in a class would have a this default . that goes to the class object.
+`self` always defaults to the function that is the direct scope you are in and doesn't change.
+
+class ExampleClass {
+	stringExample;
+	plainObject;
+	methodPublic() {
+		this.stringExample;
+		self.name           // "myFunction"
+  		self.constructor    // what called this function
+  		self.context        // current execution context info
+		// Turns this function into async and the function call is called in async mode
+		await this.methodPrivate();
+		await this.methodPrivate();
+		defer .deferredFunction();
+		return .stringExample;
+	}
+	private methodPrivate() {
+		return stringExample;
+	}
+	deferredFunction() {
+		console("Deferred function executed after methodPublic");
+	}
+}
+/*
+	This is an example of this and self usage which is unique to this language.
+	this: refers to the current class instance and its properties/methods.
+	self: provides metadata about the current function execution context.
+
+	A period without a this defaults to this, so .property is equivalent to this.property.
+*/

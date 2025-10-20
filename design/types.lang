@@ -1,0 +1,31 @@
+const stringExample	 = "T";
+const stringExampleWithType: [1:0]u8 = "T";
+const plainObject: plainObject = {};
+// INFERED OBJECT TYPE PlainObject, ComplexObject
+const autoSelectedPlainObject = {};
+const numericalU8ListArray: [3:0, usize] = [1, 2, 3];
+const abstractListArray: [*] = [1, 2, 3];
+const stringU8ListArray: [3, u8] = ['1', '2', '3'];
+const stringListArrayExpandable: [''] = ['1', '2', '3'];
+const stringListArrayExpandable: const array = ['1', '2', '3'];
+
+const stringExample: -const [1:0]u8 = "T";
+
+// FULL EXPLICIT SYNTAX
+BINDING VARIABLE: TAGS TYPE = VALUE;
+
+const numericalU8ListArray: [3:0, usize] = [1 usize, 2 usize, 3 usize];
+
+const numericalU8ListArray: staticArray[3:0] = [imut 1 usize];
+let numericalU8ListArray: dynamicArray[3:0] = [mut 1 usize, mut 2 usize, mut 3 usize];
+global constantGlobalVariable = "globalValue";
+var constantGlobalVariable = "globalValue";
+
+// global, immutable
+global x = 10;
+// global, mutable
+var x = 10;
+// block-scoped, immutable
+const x = 10;
+// block-scoped, mutable
+let x = 10;

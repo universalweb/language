@@ -1,0 +1,16 @@
+// Import a module using different syntaxes
+
+// Basic import name as variable
+import importName;
+
+// Default import
+import 'importName/Path' importVarName;
+
+// Named import
+import 'importName/Path' { namedVar };
+
+import{
+	'importName/Path1' = { namedVar1 };
+	namedImport;
+	'importName/Path2' = namedVar2;
+}

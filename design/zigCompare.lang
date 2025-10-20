@@ -1,0 +1,26 @@
+//  ZIG
+const Symbol = struct {
+    id: u64,
+
+    // Struct method
+    pub fn init(id: u64) Symbol {
+        return Symbol{ .id = id };
+    }
+
+    pub fn getId(self: Symbol) u64 {
+        return self.id;
+    }
+};
+// uLang
+const class Symbol = {
+    id: u64;
+
+    // method bound to parent Symbol class
+    init(id: u64) Symbol {
+        return Symbol{ id = id };
+    }
+
+    getId(self: Symbol) u64 {
+        return .id;
+    }
+};

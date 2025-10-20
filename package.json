@@ -1,0 +1,67 @@
+{
+	"name": "language",
+	"author": "Thomas Marchi",
+	"type": "module",
+	"auto-changelog": {
+		"commitLimit": false,
+		"output": "CHANGELOG.md",
+		"template": "./maintenance/keepachangelog.hbs",
+		"unreleased": true
+	},
+	"bugs": {
+		"url": "https://github.com/universalweb/language/issues"
+	},
+	"company": "Universal Web, Inc , Marchi Holdings",
+	"dependencies": {
+		"@babel/core": "^7.28.4",
+		"@babel/eslint-parser": "^7.28.4",
+		"@babel/preset-env": "^7.28.3",
+		"@rollup/plugin-commonjs": "^28.0.6",
+		"@rollup/plugin-inject": "^5.0.5",
+		"@rollup/plugin-node-resolve": "^16.0.2",
+		"@stylistic/eslint-plugin": "^5.4.0",
+		"@universalweb/utilitylib": "github:universalweb/utilitylib",
+		"auto-changelog": "^2.5.0",
+		"boxen": "^8.0.1",
+		"chevrotain": "^11.0.3",
+		"eslint": "^9.37.0",
+		"eslint-plugin-jsdoc": "^60.8.3",
+		"globals": "^16.4.0",
+		"node-watch": "^0.7.4",
+		"nodemon": "^3.1.10"
+	},
+	"description": "UW & VIAT modules: Client, Server, VIAT, DIS, Browser, Crypto, Wallets, Modules, & certificates.",
+	"engines": {
+		"node": ">=21.2.0"
+	},
+	"homepage": "https://github.com/universalweb/language#readme",
+	"license": "ISC",
+	"nodemonConfig": {
+		"delay": 2500,
+		"execMap": {
+			"js": "node"
+		},
+		"ignore": [
+			"node_modules/",
+			"**.json"
+		]
+	},
+	"imports": {},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/universalweb/language.git"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"scripts": {},
+	"version": "0.0.1",
+	"designVersion": "0.0.1",
+	"overrides": {},
+	"pnpm": {
+		"onlyBuiltDependencies": [
+			"esbuild"
+		]
+	},
+	"packageManager": "pnpm@10.18.3"
+}

@@ -1,0 +1,45 @@
+// Language Experimental Syntax
+// Default async functions use defer to async or run after function call
+// With return type set after return internally
+// String generic and array generic
+export function helloAlt(arg '' = 'defaultArg', otherArg const [2 item amount]u8 = [1 , 2]) !string, undefined {
+	const immutableString = 'hello';
+	const immutableStringWithType u8 = 'hello';
+	return hello(arg);
+}
+export function helloAlt(arg '', otherArg 2u8, otherArg const [2]u8,  otherArg = [1 , 2]) !'', undefined {
+	const immutableString = 'hello';
+	const immutableStringWithType [5]u8 = 'hello';
+	console(`Integer: ${js_int}\n`);
+	return hello(arg);
+}
+// Generic Object Structure with basic object struct type {}
+const struct {} = {
+	property = 'value';
+	method() {
+		return helloAlt('argValue', [3, 4]);
+	}
+}
+const struct {'', type} = {
+	property = 'value';
+	method() {
+		return helloAlt('argValue', [3, 4]);
+	}
+}
+const struct Keyed = {
+	property = 'value';
+	method() {
+		return helloAlt('argValue', [3, 4]);
+	}
+}
+const structShortHand = {
+	property = 'value';
+	method() {
+		return helloAlt('argValue', [3, 4]);
+	}
+}
+export function helloAlt(NAME TYPE = DEFAULT VALUE, NAME TYPE = DEFAULT VALUE) RETURN TYPE, RETURN TYPE {
+	await suspend_await_for_func_return();
+	defer push_function_after_end();
+	return RETURNED VALUE;
+}

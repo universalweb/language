@@ -1,0 +1,72 @@
+# Compiled source #
+###################
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+dist/*
+
+# Packages #
+############
+# it's better to unpack these files and commit the raw source
+# git has its own built in compression methods
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# Modules #
+############
+node_modules
+
+# Test cases #
+############
+tests/*
+
+cache/
+.zig-cache/
+# DBs #
+############
+*.mdb
+
+# Testing #
+############
+tempCodeRunnerFile.js
+
+# Logs and databases #
+######################
+*.log
+*.sql
+*.sqlite
+*.heapsnapshot
+
+# OS generated files #
+######################
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# CERTS #
+######################
+*.rootcert
+
+# PRIVATE #
+######################
+*.private
+
+
+
+.nx/cache
+.nx/workspace-data
+.cursor/rules/nx-rules.mdc
+.github/instructions/nx.instructions.md
