@@ -1,0 +1,42 @@
+Below is HTML template syntax this can help bring UI abilities to smart contracts to an fully encapsulated applications.
+
+function hello() string {
+	return 'Hello World';
+}
+
+How the tag element is added as a var is up for debate but a property is ideal for now.
+HTML and other tags are treated as first class entities.
+
+Tags by default have an isolated scope but can be specified to go outside and use typical vars and functions declared near it.
+
+<js let-name='script'>
+	console.log('Hello Wolrd, this is a JS tag');
+</js>
+
+<html let-name='htmlContent' let-scope='module' let-js='${<script>}' let-arguments='data'>
+	${<data.pageStyle>}
+	<h1>Write HTML Content Here ${data.name}</h1>
+	<div>${hello()}</div>
+</html>
+
+<css let-name='styleContent'>
+	.example {
+		content: '${hello()}';
+	}
+</css>
+
+function makePage(pageContent: <html>, pageStyle: <css>) !<html> {
+	// This function shorthand by using the {} brackets is the same as ({})
+	// It calls the function and provides an anonymous object as the first argument
+	const html = pageContent{
+		// Object properties use = instead of :
+		// Type info is automatically infered
+		name = 'html content';
+		// Notice the shorthand assignment with a semi-colon
+		pageStyle;
+	};
+	return html;
+}
+
+Top level await is built in as it is in all functions if called via await.
+await makePage(<htmlContent>);

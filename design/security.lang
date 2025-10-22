@@ -1,0 +1,3 @@
+The env can enforce restrictions and isolate the application to ensure security concerns are limited to a certain context not the entire system.
+This means enforced type safety, automatic GC, fault management, memory safety, and permission requesting.
+Enabling this is vital for envs like smart contracts, the Web today, and where many operating systems are moving torward fine grained permissions.

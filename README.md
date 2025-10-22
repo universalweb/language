@@ -1,6 +1,10 @@
 # INFO
 
-Transpiler is written in JS. The goal is to provide a universal language that can fit different needs while remaining easy & flexible.
+A language purpose built for next generation Smart Contracts, general scripting, and general compiled language performance with simpler syntax and more features.
+Simple yet powerful syntax. Designed to be transpiled first. Unlock lower level performance with the look and feel of a Javascript, Carbon, & Zig.
+
+The transpiler is to be written in JS ensuring it is easily extendable and modular. The goal is to provide a universal language that can fit different needs while remaining easy & flexible.
+
 This means a variable can be auto interpreted and inferred for a script like setup or be given specific type info.
 The performance goal is dependent upon the compile target and feature use such as memory safety or built in GC.
 The language acts as syntactical sugar over compile target languages which expands its viability to all possible platforms.
@@ -16,9 +20,10 @@ However, transpiling to other languages is the focus for now which results in sp
 Low level transpile target languages
 
 1) Zig (priotity)
-2) Carbon
-3) Rust
-4) Go
+2) Web Assembly (WASM)
+3) Carbon
+4) Rust
+5) Go
 
 High level transpile target languages
 

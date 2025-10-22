@@ -2,6 +2,14 @@ const stringExample = "T";
 const stringExampleWithType: [1:0]u8 = "T";
 const plainObject: plainObject = {};
 class ExampleClass {
+	// Static properties → live on the class constructor itself
+	static constructor() {
+		return this;
+	}
+	//
+		Instance properties → live on this inside each object -> This is default for none reserved static methods
+	\\
+	// Notice the class shorthand
 	stringExample;
 	plainObject;
 	methodPublic() {
@@ -11,7 +19,7 @@ class ExampleClass {
   		self.context        // current execution context info
 		// Turns this function into async and the function call is called in async mode
 		await this.methodPrivate();
-		await this.methodPrivate();
+		await .methodPrivate();
 		defer .deferredFunction();
 		return .stringExample;
 	}
@@ -22,3 +30,4 @@ class ExampleClass {
 		console("Deferred function executed after methodPublic");
 	}
 }
+ExampleClass.constructor();

@@ -2,6 +2,7 @@
 // Default async functions use defer to async or run after function call
 // With return type set after return internally
 // String generic and array generic
+// Semicolons are enforced a line must be TERMINATED;
 export function helloAlt(arg '' = 'defaultArg', otherArg const [2 item amount]u8 = [1 , 2]) !string, undefined {
 	const immutableString = 'hello';
 	const immutableStringWithType u8 = 'hello';

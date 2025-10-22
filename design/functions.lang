@@ -1,0 +1,21 @@
+function example(arg: string = 'default') !void, !string {
+	return arg;
+}
+
+In editor the function text font should transform to uppercase for all chars for specific language keywords.
+string or String or STRING all work for the type but the editor should transform them to a specific color for the type and uppercase it.
+
+FUNCTION example(arg: STRING = 'default') ! | (VOID, STRING)  {
+	AWAIT fnThatCanBeAsyncByDefault();
+	DEFER thisRunsAfterTheFunction();
+	RETURN arg;
+}
+ Await, Defer, and Return should also all be automatically styled in the editor to decorate with uppercase. The case is insensitive.
+
+This is a function shorthand by calling the function then providing the first argument it's the same as (''), (Any object)
+Multiple arguments should instead use the traditional method of (argument, list, goes, here)
+The semicolon is mandatory for all syntax to ensure a defined terminator and readable code.
+
+This style is optional and some linters may disable this in favor of more consistent readable code.
+
+example'hello world';

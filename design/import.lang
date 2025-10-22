@@ -1,16 +1,21 @@
 // Import a module using different syntaxes
 
 // Basic import name as variable
-import importName;
+@import importName;
 
 // Default import
-import 'importName/Path' importVarName;
+@import 'importName/Path' importVarName;
 
 // Named import
-import 'importName/Path' { namedVar };
+@use 'importName/Path' { namedVar };
 
-import{
+import({
 	'importName/Path1' = { namedVar1 };
 	namedImport;
 	'importName/Path2' = namedVar2;
-}
+});
+
+Shorthand experimentation that is still safe
+
+@.ImportName;
+@.'ImportName';

@@ -1,0 +1,20 @@
+Load permissions and or hardware related libraries ahead of time or mass request at launch;
+This can help isolate code from the rest of the system and ensure the app must first ask for specific permissions.
+This feature is ideal for more advanced yet safe smart contracts, new OS's that require permission requests, & the Web today.
+@permissions {
+	audio;
+	webcam;
+	video;
+	network;
+	filesystem;
+	home;
+	appLocal;
+	keystrokes;
+	image;
+	gpu;
+};
+function askLater() {
+	The permission can be none blocking or halted by defaul it is none blocking which means apps must account for live permission changes.
+	@permissions network audio webcam video;
+	defer @permissions network audio webcam video;
+}
