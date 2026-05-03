@@ -1,0 +1,24 @@
+// Concise language syntax for defining functions in AI models.
+
+ƒ makeProfileCard(userId '' = 'guest') !<html> {
+    ¬ request = profileData{
+        userId;
+    };
+
+    ¬ profile = ◐ loadProfile(request);
+    ¬ viewModel = profile|>normalizeProfile()|>decorateProfile();
+
+    • (viewModel.disabled) {
+        ⊗ <html>
+            <h1>Profile unavailable</h1>
+        </html>;
+    }
+
+    ← logProfileView(viewModel.id);
+
+    ⊗ <html>
+        <h1>${viewModel.name}</h1>
+        <div>${viewModel.role}</div>
+    </html>;
+}
+

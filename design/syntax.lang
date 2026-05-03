@@ -14,14 +14,40 @@ export function helloAlt(arg '', otherArg 2u8, otherArg const [2]u8,  otherArg =
 	console(`Integer: ${js_int}\n`);
 	return hello(arg);
 }
+const plexStructure PLEX = {
+	property -> varName; // One-way binding to varName Only updates from var
+	// Can become scary for memory leaks if overused or misused
+	biDirectional <-> varName; // Two-way binding to varName Allows assignments to update both sides
+	// Can become scary for memory leaks if overused or misused
+	// Alt functionality could be reverse of -> so PLEX being varName links to forwardOnly
+	forwardOnly <- varName; // Value/Pointer "transfer" from varName Only updates to var? Not sure if useful or a good strategy at ALL but here for completeness
+	// Anon plex structure
+	chain PLEX = {
+		nestedProperty -> varName2;
+	};
+	chainRef -> anotherPlexStructure;
+};
+plexStructure.property -> varName;
+const graphStruct GRAPH = {
+	NodeName NODE {
+
+	},
+	EdgeName EDGE {
+
+	}
+};
+// Don't allow assignments to plexStructure.property since it's one-way to GET from varName
+plexStructure.property = varName;
 // Generic Object Structure with basic object struct type {}
-const struct {} = {
+const STRUCT {} = {
 	property = 'value';
-	method() {
+	// Prototype to use a function as a reference for what is being returned reduce boilerplate
+	// In editors this will show the return type when hovering over the method or shown near it to save time
+	method() helloAlt {
 		return helloAlt('argValue', [3, 4]);
 	}
 }
-const struct {'', type} = {
+const structName {'', type} = {
 	property = 'value';
 	method() {
 		return helloAlt('argValue', [3, 4]);

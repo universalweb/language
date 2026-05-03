@@ -1,0 +1,23 @@
+No new keyword new introduces needless issues instead 
+Objects that are constructed should be uppercase first
+then use it as a function
+
+Person();
+
+const AddressStruct = struct {
+    cipher: []const u8,
+    walletType: []const u8,
+    version: []const u8,
+    publicKey: []const u8,
+    backupHash: ?[]const u8,
+};
+
+struct AddressStruct = {
+    cipher: []const u8,
+    walletType: []const u8,
+    version: []const u8,
+    publicKey: []const u8,
+    backupHash: ?[]const u8,
+};
+
+AddressStruct({...values});

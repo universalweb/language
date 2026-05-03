@@ -1,0 +1,15 @@
+Enforce RAII instead of ZAII
+
+function NAME () void {{
+	After scope ends, run defer statements to clear vars and free memory AUTOMATICALLY
+	Allocator();
+ }}
+ Allocator.CLEANUP(); // Automatically called at scope end to free memory
+
+ The question is should the default be RAII or ZAII?
+ ZAII means memory is only freed when explicitly called to free it
+ RAII means memory is freed automatically when the variable goes out of scope
+ ZAII is more manual control but more error-prone
+ RAII is more automatic but can lead to unexpected memory usage if not understood
+ 
+ 

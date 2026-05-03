@@ -1,0 +1,7 @@
+const a = [1, 2]; -> TRANSFORM -> const a [2]usize = [1, 2];
+
+Methods are not attached to objects but are instead pure functions. The OOP style is just sigar in this case.
+a.forEach(fn) -> TRANSFORM -> stdlib.array.forEach(fn);
+
+Some things are always kept track of by their nature such as 
+a.length

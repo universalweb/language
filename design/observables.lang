@@ -1,0 +1,71 @@
+const obj = {
+	example = 1;
+};
+const observed = observable(obj);
+const observed = @observable(obj);
+
+when obj (obj.example === 1) {
+	console.log(obj.example);
+} 
+
+when obj fnCompare do fnDo;
+Listens to obj and when changes occur on obj evaluate with fnCompare if it passes then call fnDo. 
+
+when obj |value, propertgyName| {
+	console.log(value, propertyName);
+} do |value, propertgyName| {
+	console.log("Property changed");
+}
+when obj|>fnCompare|>fnDo;
+
+enables the observable behavior on obj explicitly.
+More useful for annotating existing objects.
+const observable obj2 = {
+	example = 1;
+};
+Shorthand is then possible
+obj2->listenerFunction;
+
+Options
+observed.subscribe
+observed.listen
+observed.watch
+
+function listenerFunction(change) {
+	// Handle the change
+}
+
+observed.subscribe(listenerFunction);
+observed->listenerFunction;
+@observable(obj, listenerFunction);
+
+Two-way binding
+const observable obj1 = {
+	example = 1;
+};
+const observable obj2 = {
+	example = 1;
+};
+obj1<->obj2;
+obj2.example = 5; // obj1.example is now also 5
+obj1.example = 10; // obj2.example is now also 10
+
+Two-way binding - One way write
+const observable obj1 = {
+	example = 1;
+};
+const observable readonly obj2 = {
+	example = 1;
+};
+obj1<->obj2;
+obj1.example = 10; // obj2.example is now also 10
+obj2.example = 5; // fails -> can only read not write
+
+Observer primitive values
+const observable num = 1;
+num->listenerFunction;
+const obj = {
+	example = num;
+};
+num++;
+obj.example; // obj.example is now also updated to 2

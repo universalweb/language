@@ -1,0 +1,17 @@
+@this
+@self
+@context
+@bind
+
+#comptime 
+#compiler Do this
+
+#compiler if export as JS {
+	doThis();
+}
+#js {
+	doThis();
+}
+#zig {
+	doThisInstead();
+}

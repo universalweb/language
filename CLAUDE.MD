@@ -1,0 +1,9 @@
+- compact-memory project = Network
+- API INFO /agent/docs/
+- Keep responses short prefer icons instead of words
+- Write compact modern performant memory efficient code
+- No `_` in var, method, or func names
+- No const arrow functions
+- Var and Func names must be descriptive but short no half names 
+- function utilities in `utilities.js` or `@universalweb/utilitylib`
+- Don't use for of loops if you can use more performant options - inline for high performance or utility functions with first class functions

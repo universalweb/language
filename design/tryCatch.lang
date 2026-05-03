@@ -1,0 +1,4 @@
+No try catch always return an error or value.
+
+When code fails it must be traceable and well described.
+Try catch introduces needless complexity, de-optimizations, and confusion.

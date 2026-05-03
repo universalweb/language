@@ -13,16 +13,29 @@ Tags by default have an isolated scope but can be specified to go outside and us
 	console.log('Hello Wolrd, this is a JS tag');
 </js>
 
-<html let-name='htmlContent' let-scope='module' let-js='${<script>}' let-arguments='data'>
-	${<data.pageStyle>}
-	<h1>Write HTML Content Here ${data.name}</h1>
-	<div>${hello()}</div>
-</html>
+Scoped html tagged without string interpolation
+const pageContent: html = {
+	data = {
+		hello;
+	};
+	script;
+	<html>
+		${<.script>}
+		${<data.pageStyle>}
+		<h1>Write HTML Content Here ${ data.name }</h1>
+		<div>${data.hello()}</div>
+	</html>
+};
 
-<css let-name='styleContent'>
+Possible alternative syntax using <> instead of {} for tags. Calls in hello() function directly has access to the outer scope.
+const htmlContent: html = <h1>Write HTML Content Here ${ hello() }</h1>;
+
+const styleContent: css = <css let-name='styleContent'>
 	.example {
 		content: '${hello()}';
 	}
+</css>;
+
 </css>
 
 function makePage(pageContent: <html>, pageStyle: <css>) !<html> {
@@ -40,3 +53,12 @@ function makePage(pageContent: <html>, pageStyle: <css>) !<html> {
 
 Top level await is built in as it is in all functions if called via await.
 await makePage(<htmlContent>);
+
+native html integration for rendering UI in applications - prototype.
+
+UTF8 String by default for strings but could be optimized depending on chars and interactions.
+const world = 'World';
+Alt syntax scoped
+const constent = html{
+	<div>Hello ${world}</div>
+}

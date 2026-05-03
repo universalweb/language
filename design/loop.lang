@@ -1,0 +1,19 @@
+const exArry: const[_, usize]array = [1, 2, 3, 4, 5];
+const exArry const usizeArray = [1, 2, 3, 4, 5];
+const exArry = [1, 2, 3, 4, 5];
+
+exArry.for |item, index| {
+	console.log(item, index);
+};
+
+exArry.for |_, index| {
+	console.log(index);
+};
+
+for
+each
+while
+repeat X while y;
+loop X times;
+when XObservable Val changes to H do Y;
+when once;

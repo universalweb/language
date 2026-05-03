@@ -1,0 +1,27 @@
+value|>get()|>sendTo()|>finish()!>error()|>success();
+
+value|>get|>sendTo|>finish!>error|>success;
+
+This
+[...values]|>get(test)|>sendTo
+Transofrms into
+get(...values, test);
+
+Including the parenthesis isn't required but it is likely better to have for flexbility.
+
+const a = get();
+
+const b = sendTo(...a);
+
+const c = finish(...b);
+
+const d = error(c); if no error given exit fn and continue to next pipe passing the prior args
+
+const e = then(...c);
+
+There must be a better way to handle property access without wrapping for an async fn call.
+This is a pipe without using a function instead it is for property access.
+(await trie.getBucket(hashExample)).length;
+
+value|>getBucket(additionalArgs)|>.length|>final;
+

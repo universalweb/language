@@ -30,3 +30,7 @@ class ExampleClass {
 
 	A period without a this defaults to this, so .property is equivalent to this.property.
 */
+
+@this
+@super
+@self or @context

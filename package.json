@@ -13,22 +13,24 @@
 	},
 	"company": "Universal Web, Inc , Marchi Holdings",
 	"dependencies": {
-		"@babel/core": "^7.28.4",
-		"@babel/eslint-parser": "^7.28.4",
-		"@babel/preset-env": "^7.28.3",
-		"@rollup/plugin-commonjs": "^28.0.6",
+		"@babel/core": "^7.29.0",
+		"@babel/preset-env": "^7.29.2",
+		"@rollup/plugin-commonjs": "^29.0.2",
 		"@rollup/plugin-inject": "^5.0.5",
-		"@rollup/plugin-node-resolve": "^16.0.2",
-		"@stylistic/eslint-plugin": "^5.4.0",
+		"@rollup/plugin-node-resolve": "^16.0.3",
+		"@stylistic/eslint-plugin": "^5.10.0",
 		"@universalweb/utilitylib": "github:universalweb/utilitylib",
 		"auto-changelog": "^2.5.0",
 		"boxen": "^8.0.1",
-		"chevrotain": "^11.0.3",
-		"eslint": "^9.37.0",
-		"eslint-plugin-jsdoc": "^60.8.3",
-		"globals": "^16.4.0",
+		"chevrotain": "^12.0.0",
+		"eslint": "^10.2.1",
+		"eslint-plugin-jsdoc": "^62.9.0",
+		"eslint-plugin-security": "^4.0.0",
+		"eslint-plugin-sonarjs": "^4.0.3",
+		"globals": "^17.5.0",
 		"node-watch": "^0.7.4",
-		"nodemon": "^3.1.10"
+		"nodemon": "^3.1.14",
+		"ts-api-utils": "^2.5.0"
 	},
 	"description": "UW & VIAT modules: Client, Server, VIAT, DIS, Browser, Crypto, Wallets, Modules, & certificates.",
 	"engines": {
@@ -63,5 +65,5 @@
 			"esbuild"
 		]
 	},
-	"packageManager": "pnpm@10.18.3"
+	"packageManager": "pnpm@10.33.0"
 }

@@ -1,21 +1,26 @@
 // Import a module using different syntaxes
 
-// Basic import name as variable
-@import importName;
+// Basic import name as variable infers the path and the var name
+import importName;
 
-// Default import
-@import 'importName/Path' importVarName;
+// Default import with specified path and variable name
+import importVarName 'importName/Path';
+Can help with tree shaking and dead code elimination but not including unused code from a larger library
+import { importVarName } 'importName/Path' ;
 
-// Named import
-@use 'importName/Path' { namedVar };
+Function based import -> Needs to be compile time with known path
+consider using it as maybe a sort of binary module loader and then interface with dynamic libraries or a binary
+import('github:user/repo/module') variable;
 
-import({
-	'importName/Path1' = { namedVar1 };
-	namedImport;
-	'importName/Path2' = namedVar2;
-});
+IMPORT AS DIFFERENT VAR NAME
+import 'KMAC' {
+	kmac256: kmac256JS,
+	kmac256xof: kmac256xofJS,
+};
 
-Shorthand experimentation that is still safe
+import {
+	kmac256: kmac256JS,
+	kmac256xof: kmac256xofJS,
+} 'KMAC';
 
-@.ImportName;
-@.'ImportName';
+export variable;

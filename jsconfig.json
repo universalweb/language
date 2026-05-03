@@ -1,0 +1,24 @@
+{
+	"allowJs": true,
+	"checkJs": true,
+	"noImplicitAny": true,
+	"compilerOptions": {
+		"paths": {},
+		"module": "NodeNext",
+		"moduleResolution": "NodeNext",
+		"target": "ESNext",
+		"jsx": "react",
+		"strictNullChecks": true,
+		"experimentalDecorators": true
+	},
+	"exclude": [
+		"**/build/*",
+		"**/docSource/*",
+		"**/examples/*",
+		"**/node_modules/*",
+		"**/npm/*",
+		"**/package/*",
+		"**/target/*",
+		"node_modules"
+	]
+}

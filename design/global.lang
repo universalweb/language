@@ -1,3 +1,6 @@
 global example = 1;
 
 let global example = 1 + global example;
+
+Process args are given not assigned. While global can be assigned.
+const arg1 = process argument;

@@ -1,6 +1,8 @@
-import babelParser from '@babel/eslint-parser';
+import * as ts_api_utils from 'ts-api-utils';
 import globals from 'globals';
 import jsdoc from 'eslint-plugin-jsdoc';
+import security from 'eslint-plugin-security';
+import sonarjs from 'eslint-plugin-sonarjs';
 import stylisticJs from '@stylistic/eslint-plugin';
 const globalsObject = {};
 const customGlobals = {
@@ -14,6 +16,7 @@ const customGlobals = {
 	status: 'off',
 	VIAT: 'off',
 	crypto: 'off',
+	Bun: 'readonly',
 };
 function addGlobals(keysObject) {
 	const keys = Object.keys(keysObject);
@@ -21,29 +24,14 @@ function addGlobals(keysObject) {
 		globalsObject[key.trim()] = 'readonly';
 	});
 }
-const globalsArray = [
-	globals.browser,
-	globals.commonjs,
-	globals.node,
-	globals.serviceworker,
-	globals.worker,
-];
+const globalsArray = [globals.browser, globals.commonjs, globals.node, globals.serviceworker, globals.worker];
 globalsArray.forEach(addGlobals);
 Object.assign(globalsObject, customGlobals);
 export default [
 	{
-		ignores: [
-			'node_modules/*',
-			'.eslintignore',
-			'**/*.mjs',
-		],
-		files: [
-			'**/*.js',
-			'**/*.umm',
-			'**/*.uml',
-		],
+		ignores: ['node_modules/*', '.eslintignore', '**/*.mjs'],
+		files: ['**/*.js', '**/*.umm', '**/*.uml', '**/*.json'],
 		languageOptions: {
-			parser: babelParser,
 			parserOptions: {
 				requireConfigFile: true,
 			},
@@ -54,22 +42,25 @@ export default [
 		plugins: {
 			jsdoc,
 			'@stylistic': stylisticJs,
+			sonarjs,
+			security,
+			ts_api_utils,
 		},
 		rules: {
+			'sonarjs/cognitive-complexity': 'warn',
+			'security/detect-object-injection': 'off',
 			'@stylistic/array-bracket-newline': [
-				'error',
-				{
+				'error', {
 					multiline: true,
-					minItems: 3,
+					minItems: 8,
 				},
 			],
 			'@stylistic/array-bracket-spacing': ['error', 'never'],
 			'@stylistic/array-element-newline': [
-				'error',
-				{
-					ArrayExpression: 'consistent',
+				'error', {
+					ArrayExpression: 'never',
 					ArrayPattern: {
-						minItems: 2,
+						minItems: 11,
 					},
 				},
 			],
@@ -77,8 +68,7 @@ export default [
 			'@stylistic/block-spacing': ['error', 'always'],
 			'@stylistic/brace-style': 'error',
 			'@stylistic/comma-dangle': [
-				'error',
-				{
+				'error', {
 					objects: 'always-multiline',
 					arrays: 'always-multiline',
 					imports: 'always-multiline',
@@ -87,8 +77,7 @@ export default [
 				},
 			],
 			'@stylistic/comma-spacing': [
-				'error',
-				{
+				'error', {
 					after: true,
 					before: false,
 				},
@@ -101,17 +90,14 @@ export default [
 			'@stylistic/function-call-spacing': 'error',
 			'@stylistic/function-paren-newline': 'error',
 			'@stylistic/generator-star-spacing': [
-				'error',
-				{
+				'error', {
 					after: true,
 					before: false,
 				},
 			],
 			'@stylistic/implicit-arrow-linebreak': ['error', 'beside'],
 			'@stylistic/indent': [
-				'error',
-				'tab',
-				{
+				'error', 'tab', {
 					ImportDeclaration: 1,
 					ObjectExpression: 1,
 					SwitchCase: 1,
@@ -119,24 +105,21 @@ export default [
 			],
 			'@stylistic/jsx-quotes': ['error', 'prefer-double'],
 			'@stylistic/key-spacing': [
-				'error',
-				{
+				'error', {
 					afterColon: true,
 					beforeColon: false,
 					mode: 'strict',
 				},
 			],
 			'@stylistic/keyword-spacing': [
-				'error',
-				{
+				'error', {
 					after: true,
 					before: true,
 				},
 			],
 			'@stylistic/linebreak-style': ['error', 'unix'],
 			'@stylistic/lines-around-comment': [
-				'error',
-				{
+				'error', {
 					afterBlockComment: false,
 					afterLineComment: false,
 					beforeBlockComment: false,
@@ -145,8 +128,7 @@ export default [
 			],
 			'@stylistic/lines-between-class-members': ['error', 'never'],
 			'@stylistic/max-len': [
-				'error',
-				{
+				'error', {
 					code: 150,
 					ignoreComments: true,
 					ignoreRegExpLiterals: true,
@@ -158,16 +140,14 @@ export default [
 				},
 			],
 			'@stylistic/max-statements-per-line': [
-				'error',
-				{
+				'error', {
 					max: 1,
 				},
 			],
 			'@stylistic/multiline-ternary': ['error', 'never'],
 			'@stylistic/new-parens': 'error',
 			'@stylistic/newline-per-chained-call': [
-				'error',
-				{
+				'error', {
 					ignoreChainWithDepth: 3,
 				},
 			],
@@ -179,8 +159,7 @@ export default [
 			'@stylistic/no-mixed-spaces-and-tabs': ['error'],
 			'@stylistic/no-multi-spaces': 'error',
 			'@stylistic/no-multiple-empty-lines': [
-				'error',
-				{
+				'error', {
 					max: 0,
 					maxEOF: 1,
 				},
@@ -189,8 +168,7 @@ export default [
 			'@stylistic/no-trailing-spaces': 'error',
 			'@stylistic/no-whitespace-before-property': 'error',
 			'@stylistic/object-curly-newline': [
-				'error',
-				{
+				'error', {
 					ExportDeclaration: {
 						minProperties: 4,
 						multiline: true,
@@ -211,8 +189,7 @@ export default [
 			],
 			'@stylistic/object-curly-spacing': ['error', 'always'],
 			'@stylistic/object-property-newline': [
-				'error',
-				{
+				'error', {
 					allowAllPropertiesOnSameLine: false,
 				},
 			],
@@ -222,9 +199,7 @@ export default [
 			'@stylistic/padding-line-between-statements': 'off',
 			'@stylistic/quote-props': ['error', 'as-needed'],
 			'@stylistic/quotes': [
-				'error',
-				'single',
-				{
+				'error', 'single', {
 					allowTemplateLiterals: 'always',
 				},
 			],
@@ -233,8 +208,7 @@ export default [
 			'@stylistic/semi-spacing': 'error',
 			'@stylistic/space-before-blocks': ['error', 'always'],
 			'@stylistic/space-before-function-paren': [
-				'error',
-				{
+				'error', {
 					anonymous: 'never',
 					asyncArrow: 'always',
 					named: 'never',
@@ -242,22 +216,18 @@ export default [
 			],
 			'@stylistic/space-in-parens': ['error', 'never'],
 			'@stylistic/space-infix-ops': [
-				'error',
-				{
+				'error', {
 					int32Hint: false,
 				},
 			],
 			'@stylistic/space-unary-ops': [
-				'error',
-				{
+				'error', {
 					nonwords: false,
 					words: true,
 				},
 			],
 			'@stylistic/spaced-comment': [
-				'error',
-				'always',
-				{
+				'error', 'always', {
 					block: {
 						balanced: true,
 						exceptions: ['*'],
@@ -270,8 +240,7 @@ export default [
 				},
 			],
 			'@stylistic/switch-colon-spacing': [
-				'error',
-				{
+				'error', {
 					after: true,
 					before: false,
 				},
@@ -285,8 +254,7 @@ export default [
 			'array-callback-return': 'error',
 			'arrow-body-style': ['error', 'always'],
 			'arrow-spacing': [
-				'error',
-				{
+				'error', {
 					after: true,
 					before: true,
 				},
@@ -309,8 +277,7 @@ export default [
 			'handle-callback-err': 'error',
 			'id-blacklist': 'off',
 			'id-length': [
-				'error',
-				{
+				'error', {
 					min: 1,
 				},
 			],
@@ -363,8 +330,7 @@ export default [
 			'jsdoc/tag-lines': 0,
 			'jsdoc/valid-types': 1,
 			'line-comment-position': [
-				'error',
-				{
+				'error', {
 					position: 'above',
 				},
 			],
@@ -446,8 +412,7 @@ export default [
 			'no-octal': 'error',
 			'no-octal-escape': 'error',
 			'no-param-reassign': [
-				'error',
-				{
+				'error', {
 					props: false,
 				},
 			],
@@ -458,8 +423,7 @@ export default [
 			'no-proto': 'error',
 			'no-prototype-builtins': 'error',
 			'no-redeclare': [
-				'error',
-				{
+				'error', {
 					builtinGlobals: true,
 				},
 			],
@@ -467,11 +431,7 @@ export default [
 			'no-restricted-globals': 'error',
 			'no-restricted-imports': 'off',
 			'no-restricted-modules': 'off',
-			'no-restricted-syntax': [
-				'error',
-				'VariableDeclarator[id.name="type"]',
-				'Property[key.name="type"]',
-			],
+			'no-restricted-syntax': ['error', 'VariableDeclarator[id.name="type"]', 'Property[key.name="type"]'],
 			'no-return-assign': ['error', 'always'],
 			'no-return-await': 'error',
 			'no-script-url': 'error',
@@ -479,8 +439,7 @@ export default [
 			'no-sequences': 'error',
 			'no-setter-return': 'error',
 			'no-shadow': [
-				'error',
-				{
+				'error', {
 					builtinGlobals: true,
 					hoist: 'all',
 				},
@@ -502,8 +461,7 @@ export default [
 			'no-unneeded-ternary': 'error',
 			'no-unreachable': 'error',
 			'no-unused-expressions': [
-				'error',
-				{
+				'error', {
 					allowShortCircuit: true,
 					allowTernary: true,
 				},
@@ -533,18 +491,12 @@ export default [
 			'require-yield': 'error',
 			semi: ['error', 'always'],
 			'sort-imports': [
-				'error',
-				{
+				'error', {
 					allowSeparatedGroups: false,
 					ignoreCase: false,
 					ignoreDeclarationSort: false,
 					ignoreMemberSort: false,
-					memberSyntaxSortOrder: [
-						'none',
-						'all',
-						'multiple',
-						'single',
-					],
+					memberSyntaxSortOrder: ['none', 'all', 'multiple', 'single'],
 				},
 			],
 			'sort-keys': 'off',

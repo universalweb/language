@@ -1,11 +1,20 @@
 function example(arg: string = 'default') !void, !string {
+	arguments.length;
+	arguments.arg;
+	return arg;
+}
+
+ƒ example(arg = 'utf8-default') !void, !string {
+	arguments.length;
+	arguments.arg;
 	return arg;
 }
 
 In editor the function text font should transform to uppercase for all chars for specific language keywords.
 string or String or STRING all work for the type but the editor should transform them to a specific color for the type and uppercase it.
 
-FUNCTION example(arg: STRING = 'default') ! | (VOID, STRING)  {
+Returns Error, Void, or String
+FUNCTION example(arg: STRING = 'default') Error, VOID, STRING  {
 	AWAIT fnThatCanBeAsyncByDefault();
 	DEFER thisRunsAfterTheFunction();
 	RETURN arg;
@@ -19,3 +28,90 @@ The semicolon is mandatory for all syntax to ensure a defined terminator and rea
 This style is optional and some linters may disable this in favor of more consistent readable code.
 
 example'hello world';
+
+Anonymous functions
+() => {
+	Arrow Function
+}
+
+Multiple Returns from one function
+function multiReturn() [!int, !string] {
+	return 42, 'The answer';
+}
+
+main :: () !void {
+
+}
+
+main () !void {
+
+}
+
+ƒ main () !void {
+
+}
+
+function main[arg1: !int, arg2: !string] !void {
+	array based args
+}
+
+call as 
+main => 42, 'hello';
+
+main{};
+
+const sum int = :{
+	let a int = 0;
+	a++;
+	if (a > 10) {
+		return a;
+	}
+}
+
+RAII version
+const sum = :{{
+	let a int = 0;
+	const al = allocator();
+	a++;
+	if (a > 10) {
+		return a;
+	}
+}}
+al.free(); // Automatically called at scope end to free memory
+
+Named scope
+const sum = sumScope:(manually set what args can be accessed) {
+	let a int = 0;
+	function inner(a int) int {
+		return a;
+	}
+	break sumScope inner(a);
+}
+
+const contained = sumScope:(manually set what args can be accessed){{
+	// No access to outside scope
+	// contained entirely to this block
+	// RAII applies here
+	return 1;
+}}
+
+
+function name () fn(i32) i32 {
+	return function(a i32) i32 {
+		return a + 1;
+	};
+}
+
+shorthand version -> Compiler can infer the fn(i32) i32 return type becuase of the return keyword
+function name () fn {
+	return (a i32) i32 {
+		return a + 1;
+	};
+}
+
+super shorthand -> Infers the entire return
+function name () {
+	return (a i32) i32 {
+		return a + 1;
+	};
+}

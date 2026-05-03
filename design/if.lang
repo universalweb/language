@@ -1,0 +1,16 @@
+Shorthand if
+
+Long-handle for comparing the first element of an array to a source buffer.
+if (initialFirstCompare === 1) {
+	array.unshift(sourceBuffer);
+	return 0;
+} else if (initialFirstCompare === 0) {
+	return false;
+} else {
+	return -1;
+}
+
+Shorthand
+if (initialFirstCompare === 1) array.unshift(sourceBuffer) && return 0; else (initialFirstCompare === 0) return false; else return -1;
+if (initialFirstCompare === 1) array.unshift(sourceBuffer) && return 0; elseif (initialFirstCompare === 0) return false; else return -1;
+if (initialFirstCompare === 1) array.unshift(sourceBuffer) && return 0; else if (initialFirstCompare === 0) return false; else return -1;

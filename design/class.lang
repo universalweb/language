@@ -31,3 +31,18 @@ class ExampleClass {
 	}
 }
 ExampleClass.constructor();
+
+
+class Example {
+	Built-in reserved methods
+	constructor() {
+
+	}
+
+	New Methods
+	publicMethod() {
+		
+	}
+
+	// Class Vars Here
+}

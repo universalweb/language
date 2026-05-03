@@ -29,3 +29,7 @@ var x = 10;
 const x = 10;
 // block-scoped, mutable
 let x = 10;
+
+once x = 10; // can only be assigned once
+OR
+static x = 10; // static lifetime

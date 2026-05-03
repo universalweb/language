@@ -1,0 +1,23 @@
+Prototype Syntax for flow control keywords. All functions can be async by default if they contain await or async keywords.
+This helps to reduce boilerplate code and makes all functions capable of handling asynchronous operations seamlessly.
+
+await fn();
+
+defer fn();
+
+concurrent fn();
+
+parallel fn();
+
+Consider native event loop integration for event-driven programming.
+event 'eventname' fn;
+
+await can return multiple values
+function asyncMultiReturn() [!int, !string] {
+	await fnThatReturnsIntAndString();
+	return 1, "done";
+}
+function asyncMultiReturn() [!int, !string] {
+	const [resultInt, resultString] = await fnThatReturnsIntAndString();
+	return resultInt, resultString;
+}

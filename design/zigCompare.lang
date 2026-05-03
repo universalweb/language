@@ -11,16 +11,47 @@ const Symbol = struct {
         return self.id;
     }
 };
-// uLang
-const class Symbol = {
+// V Dash
+// Class is const by default
+class Symbol = {
     id: u64;
 
     // method bound to parent Symbol class
-    init(id: u64) Symbol {
-        return Symbol{ id = id };
+	// Method function shorthand no need for fn
+    init(id u64) Symbol {
+        return Symbol{ id };
     }
-
-    getId(self: Symbol) u64 {
+	// Self is reserved
+    getId(selfType Symbol) u64 {
         return .id;
     }
 };
+Shorthand
+const class Symbol = {
+    id u64;
+
+    // method bound to parent Symbol class
+    init(id u64) Symbol {
+        return Symbol{ id = id };
+    }
+
+    getId(self Symbol) u64 {
+        return .id;
+    }
+};
+
+Zig
+[]const []const u8
+const js_string: []const u8 = "hello world";
+
+V-
+const[2 const[2]u8]list
+const[2, ...const[2]u8]list
+const[2 ...const[2]u8]list
+
+Explicit without separator
+const js_string const[size:ifnullTerminated]u8 = "hello world";
+or with
+const js_string: const[]u8 = "hello world";
+Shorthand
+const js_string = "hello world";
