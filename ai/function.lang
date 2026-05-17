@@ -9,14 +9,14 @@
     ¬ viewModel = profile|>normalizeProfile()|>decorateProfile();
 
     • (viewModel.disabled) {
-        ⊗ <html>
+        <html>
             <h1>Profile unavailable</h1>
         </html>;
     }
 
     ← logProfileView(viewModel.id);
 
-    ⊗ <html>
+    <html>
         <h1>${viewModel.name}</h1>
         <div>${viewModel.role}</div>
     </html>;

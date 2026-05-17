@@ -1,0 +1,66 @@
+Operators as first-class closures / variadic call form.
+Reduces boilerplate when folding many args through a single op.
+Inspired by Lisp/Scheme/Clojure where + - * / etc are plain functions.
+
+Classic infix
+const total = 1 + 2 + 3 + 4 + 5 + 6;
+
+Variadic closure form -> operator first, then args
+const total = (+ 1 2 3 4 5 6);
+
+Equivalent to a fold
+const total = [1, 2, 3, 4, 5, 6].fold(+);
+
+Other operators behave the same
+(- 10 1 2 3);     ⇒ 4
+(* 2 3 4);        ⇒ 24
+(/ 100 2 5);      ⇒ 10
+(% 17 5);         ⇒ 2
+(** 2 3 2);       ⇒ 64
+(min 5 2 9 1 7);  ⇒ 1
+(max 5 2 9 1 7);  ⇒ 9
+
+Comparison chains evaluate left-to-right and short-circuit
+(< 1 2 3 4);      ⇒ true
+(<= a b c);
+(== x y z);
+(!= a b);
+
+Logical fold
+(and a b c d);
+(or  a b c);
+(xor a b);
+
+String / array join sugar
+(.. 'hi ' name '!');  ⇒ concat
+(++ list1 list2 list3); ⇒ array concat
+
+Any function can be called in closure form
+(sum 1 2 3 4);
+(myFn arg1 arg2 arg3);
+
+Spread works inside the closure form
+const nums = [1, 2, 3, 4, 5, 6];
+(+ ...nums);
+(+ ...nums 10 20);
+
+Operator as a value -> capture and pass around
+const add = (+);
+const product = [1, 2, 3, 4].fold(add);
+[1, 2, 3, 4]|>(*)|>print;
+
+Partial application -> bind leading args, return a closure
+const inc = (+ 1);
+inc(4);            ⇒ 5
+const halve = (/ _ 2);
+halve(10);         ⇒ 5
+
+Mix with pipe
+nums|>(+)|>print;
+nums|>(max)|>(+ 100)|>print;
+
+Inline closure with named op
+const sumSquares = (+ ...nums.map(n => n * n));
+
+Editor hint: closure form (op a b c) renders op in operator color,
+uppercase keywords stay styled, and hover shows the inferred return type.

@@ -1,14 +1,17 @@
 # ⩝ Language
 
-Human & Agentic Co-development First language
+A language for Human & AI Co-development
 
-`⩝` is an experimental programming language designed for AI-and-human co-development. The goal is to make code more concise, expressive, and easier to co-author without giving up the ability to target practical runtimes and lower-level backends.
+`⩝` is an experimental programming language designed for AI-and-human co-development. The goal is to make code more concise, optionally expressive, automatic type inference, and easier to co-author without giving up the ability to target practical runtimes and lower-level backends.
 
 The language is aimed at three overlapping use cases:
 
+- AI Co-Development
 - next-generation smart contracts, smart specs and other sandboxed environments
-- high-level scripting and fast iteration
+- high-level scripting with performance
 - performance-oriented applications that benefit from lower-level compilation targets
+- Next Gen Web language merging UI & Script
+- Token efficient development
 
 Its syntax direction borrows some of the feel of JavaScript, Carbon, and Zig, while trying to stay smaller, more flexible, and more token-efficient.
 
