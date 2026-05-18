@@ -28,7 +28,7 @@ importers:
         version: 5.10.0(eslint@10.2.1)
       '@universalweb/utilitylib':
         specifier: github:universalweb/utilitylib
-        version: https://codeload.github.com/universalweb/utilitylib/tar.gz/b9730a5b96057a44a47d5edcca17978e217f57da
+        version: https://codeload.github.com/universalweb/utilitylib/tar.gz/bc22d46fd525eb308a1f59a3716e268a65517463
       auto-changelog:
         specifier: ^2.5.0
         version: 2.5.0
@@ -707,9 +707,9 @@ packages:
     resolution: {integrity: sha512-9TukXyATBQf/Jq9AMQXfvurk+G5R2MwfqQGDR2GzGz28HvY/lXNKGhkY+6IOubwcquikWk5cjlgPvD2uAA7htQ==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
-  '@universalweb/utilitylib@https://codeload.github.com/universalweb/utilitylib/tar.gz/b9730a5b96057a44a47d5edcca17978e217f57da':
-    resolution: {tarball: https://codeload.github.com/universalweb/utilitylib/tar.gz/b9730a5b96057a44a47d5edcca17978e217f57da}
-    version: 1.0.1
+  '@universalweb/utilitylib@https://codeload.github.com/universalweb/utilitylib/tar.gz/bc22d46fd525eb308a1f59a3716e268a65517463':
+    resolution: {tarball: https://codeload.github.com/universalweb/utilitylib/tar.gz/bc22d46fd525eb308a1f59a3716e268a65517463}
+    version: 1.0.2
     hasBin: true
 
   acorn-jsx@5.3.2:
@@ -785,8 +785,8 @@ packages:
     resolution: {integrity: sha512-F3PH5k5juxom4xktynS7MoFY+NUWH5LC4CnH11YB8NPew+HLpmBLCybSAEyb2F+4pRXhuhWqFesoQd6DAyc2hw==}
     engines: {node: '>=18'}
 
-  brace-expansion@5.0.5:
-    resolution: {integrity: sha512-VZznLgtwhn+Mact9tfiwx64fA9erHH/MCXEUfB/0bX/6Fz6ny5EGTXYltMocqg4xFAQZtnO3DHWWXi8RiuN7cQ==}
+  brace-expansion@5.0.6:
+    resolution: {integrity: sha512-kLpxurY4Z4r9sgMsyG0Z9uzsBlgiU/EFKhj/h91/8yHu0edo7XuixOIH3VcJ8kkxs6/jPzoI6U9Vj3WqbMQ94g==}
     engines: {node: 18 || 20 || >=22}
 
   braces@3.0.3:
@@ -2252,7 +2252,7 @@ snapshots:
 
   '@typescript-eslint/types@8.58.2': {}
 
-  '@universalweb/utilitylib@https://codeload.github.com/universalweb/utilitylib/tar.gz/b9730a5b96057a44a47d5edcca17978e217f57da': {}
+  '@universalweb/utilitylib@https://codeload.github.com/universalweb/utilitylib/tar.gz/bc22d46fd525eb308a1f59a3716e268a65517463': {}
 
   acorn-jsx@5.3.2(acorn@8.16.0):
     dependencies:
@@ -2336,7 +2336,7 @@ snapshots:
       widest-line: 5.0.0
       wrap-ansi: 9.0.2
 
-  brace-expansion@5.0.5:
+  brace-expansion@5.0.6:
     dependencies:
       balanced-match: 4.0.4
 
@@ -2689,7 +2689,7 @@ snapshots:
 
   minimatch@10.2.5:
     dependencies:
-      brace-expansion: 5.0.5
+      brace-expansion: 5.0.6
 
   minimist@1.2.8: {}
 
